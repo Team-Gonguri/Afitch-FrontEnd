@@ -1,11 +1,13 @@
 import React from 'react';
 import GlobalStyle from './GlobalStyle';
 
+import Router from './Router';
+
 function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
-      <div>sd</div>
+      <Router />
     </React.Fragment>
   );
 }
