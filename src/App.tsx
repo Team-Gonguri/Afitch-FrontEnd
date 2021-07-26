@@ -1,7 +1,15 @@
-import React from "react";
+import React from 'react';
+import GlobalStyle from './GlobalStyle';
+
+import Router from './Router';
 
 function App() {
-  return <div className='App'>sd</div>;
+  return (
+    <React.Fragment>
+      <GlobalStyle />
+      <Router />
+    </React.Fragment>
+  );
 }
 
 export default App;
