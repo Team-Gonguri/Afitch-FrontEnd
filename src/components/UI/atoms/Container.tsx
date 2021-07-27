@@ -18,8 +18,7 @@ const ColumnContainer = styled.div`
   margin-bottom: ${(props: ContainerProps) =>
     props.marginBottom ? props.marginBottom : '0px'};
 
-  padding: ${(props: ContainerProps) =>
-    props.padding ? props.padding : '50px'};
+  padding: ${(props: ContainerProps) => (props.padding ? props.padding : '0')};
 `;
 
 const RowContainer = styled(ColumnContainer)`

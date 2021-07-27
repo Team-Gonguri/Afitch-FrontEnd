@@ -13,6 +13,7 @@ const Input = styled.input`
     props.marginRight ? props.marginRight : '0px'};
   margin-bottom: ${(props: InputProps) =>
     props.marginBottom ? props.marginBottom : '0px'};
+
   padding-left: 5px;
 
   border: 1px solid #e9b3b3;
