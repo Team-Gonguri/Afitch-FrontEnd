@@ -28,12 +28,4 @@ const Button = styled.button`
   color: ${(props: ButtonProps) => (props.color ? props.color : '#ffffff')};
 `;
 
-function SignInBtn() {
-  return <Button>로그인</Button>;
-}
-
-function SugnUpBtn() {
-  return <Button>회원가입</Button>;
-}
-
 export { Button };
