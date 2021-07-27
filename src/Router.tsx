@@ -13,7 +13,7 @@ function Router() {
     <BrowserRouter>
       <Switch>
         {Routes.map((v) => {
-          return <Route {...v.props} />;
+          return <Route key={v.props.path + 1} {...v.props} />;
         })}
       </Switch>
     </BrowserRouter>
