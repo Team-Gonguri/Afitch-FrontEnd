@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
 import { ColumnContainer, Button, Logo } from '../../UI/atoms';
-import { CheckboxText, SignInInfo } from '../../UI/molecules';
+import { SignInForm } from '../../UI/organisms';
 
 function SignIn() {
-  const [check, setCheck] = useState(false);
   const history = useHistory();
 
   const onSignUpBtnClicked = () => {
@@ -15,7 +14,7 @@ function SignIn() {
   return (
     <ColumnContainer padding="15vh">
       <Logo marginBottom="3vh" />
-      <SignInInfo />
+      <SignInForm />
       <Button
         border="1px solid #e9b3b3"
         background="none"
@@ -26,13 +25,6 @@ function SignIn() {
       >
         회원가입
       </Button>
-      <CheckboxText
-        width="380px"
-        marginBottom="30px"
-        text="로그인 유지하기"
-        check={check}
-        setCheck={setCheck}
-      />
     </ColumnContainer>
   );
 }

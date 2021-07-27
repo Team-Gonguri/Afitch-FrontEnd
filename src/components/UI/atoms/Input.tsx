@@ -25,15 +25,4 @@ const Input = styled.input`
   color: black;
 `;
 
-interface CheckboxProps extends DefaultProps {}
-
-const Checkbox = styled(Input).attrs({ type: 'checkbox' })`
-  width: ${(props: CheckboxProps) => (props.width ? props.width : '25px')};
-  height: ${(props: CheckboxProps) => (props.height ? props.height : '25px')};
-  margin-right: ${(props: CheckboxProps) =>
-    props.marginRight ? props.marginRight : '0px'};
-  margin-bottom: ${(props: CheckboxProps) =>
-    props.marginBottom ? props.marginBottom : '0px'};
-`;
-
-export { Input, Checkbox };
+export { Input };

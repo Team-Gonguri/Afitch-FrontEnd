@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
 import { ColumnContainer, Input, Button } from '../atoms';
+import { CheckboxText } from '../../UI/molecules';
 
-function SignInInfo() {
+function SignInForm() {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+  const [check, setCheck] = useState(false);
 
   const inputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -24,13 +26,20 @@ function SignInInfo() {
         }}
       />
       <Input
-        marginBottom="26px"
+        marginBottom="5px"
         placeholder="p/w"
         type="password"
         value={pw}
         onChange={(e) => {
           inputChange(e, setPw);
         }}
+      />
+      <CheckboxText
+        width="380px"
+        marginBottom="20px"
+        text="로그인 유지하기"
+        check={check}
+        setCheck={setCheck}
       />
       <Button marginBottom="12px" width="380px">
         로그인
@@ -39,4 +48,4 @@ function SignInInfo() {
   );
 }
 
-export default SignInInfo;
+export default SignInForm;

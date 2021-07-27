@@ -26,7 +26,7 @@ function InputBoxButton({
         style={{ justifyContent: 'space-between' }}
       >
         <Input
-          width="60%"
+          width="65%"
           type={type}
           ref={iRef}
           value={iText}
