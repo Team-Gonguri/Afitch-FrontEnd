@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ColumnContainer, RowContainer, Button, Logo } from '../../UI/atoms';
+import { ColumnContainer, Button, Logo } from '../../UI/atoms';
 import { CheckboxText, SignInInfo } from '../../UI/molecules';
 
 function SignIn() {
@@ -26,7 +26,6 @@ function SignIn() {
         check={check}
         setCheck={setCheck}
       />
-      {/*<Link>회원가입</Link>*/}
     </ColumnContainer>
   );
 }
