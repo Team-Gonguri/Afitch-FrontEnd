@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { SignIn, SignUp } from './components/pages';
+import { SignIn, SignUp, MenuSwitch } from './components/pages';
 
 function Router() {
   const Routes = [
     { props: { component: SignIn, path: '/', exact: true } },
     { props: { component: SignUp, path: '/signup', exact: true } },
+    { props: { component: MenuSwitch, path: '/ptalk', exact: false } },
   ];
 
   return (

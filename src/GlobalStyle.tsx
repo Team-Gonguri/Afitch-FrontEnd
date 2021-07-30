@@ -12,9 +12,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     font-size:16px;
     width: auto;
-    min-width: 1280px;
+    min-width: 1440px;
     height: auto;
-    min-height: 720px;
+    min-height: 900px;
     background: #FFFaFa;
   
     a{

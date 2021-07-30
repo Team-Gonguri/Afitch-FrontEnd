@@ -4,6 +4,7 @@ import { Button } from './Button';
 import { Input, Checkbox } from './Input';
 import { Link } from './Link';
 import { Text } from './Text';
+import { Img } from './Img';
 
 export {
   ColumnContainer,
@@ -14,4 +15,5 @@ export {
   Checkbox,
   Link,
   Text,
+  Img,
 };
