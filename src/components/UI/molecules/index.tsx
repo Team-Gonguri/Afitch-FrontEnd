@@ -5,6 +5,7 @@ import InputBoxButton from './InputBoxButton';
 import Profile from './Profile';
 import MainLogo from './MainLogo';
 import MenuBar from './MenuBar';
+import FitnessCard from './FitnessCard';
 
 export {
   CheckboxText,
@@ -14,4 +15,5 @@ export {
   Profile,
   MainLogo,
   MenuBar,
+  FitnessCard,
 };

@@ -7,7 +7,7 @@ function Router() {
   const Routes = [
     { props: { component: SignIn, path: '/', exact: true } },
     { props: { component: SignUp, path: '/signup', exact: true } },
-    { props: { component: MenuSwitch, path: '/ptalk', exact: false } },
+    { props: { component: MenuSwitch, path: '/afitch', exact: false } },
   ];
 
   return (
