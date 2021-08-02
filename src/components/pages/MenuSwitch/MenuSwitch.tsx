@@ -1,19 +1,28 @@
 import React from 'react';
 import { useHistory, Route, Switch } from 'react-router-dom';
 
-import { FitnessList, MyFitness } from './Switch';
-import { ColumnContainer, Button } from '../../UI/atoms';
+import { FitnessCategory, MyFitness, FitnessList } from './Switch';
+import { ColumnContainer } from '../../UI/atoms';
 import { MainLayout } from '../../UI/organisms';
 
 function MenuSwitch() {
-  console.log('s');
-  const history = useHistory();
   const routes = [
     {
-      props: { path: '/ptalk/fitness', exact: true, component: FitnessList },
+      props: {
+        path: '/afitch/fitness',
+        exact: true,
+        component: FitnessCategory,
+      },
     },
     {
-      props: { path: '/ptalk/myfitness', exact: true, component: MyFitness },
+      props: { path: '/afitch/myfitness', exact: true, component: MyFitness },
+    },
+    {
+      props: {
+        path: '/afitch/fitnesslist/:fitness',
+        exact: true,
+        component: FitnessList,
+      },
     },
   ];
 

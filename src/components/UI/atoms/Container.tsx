@@ -23,6 +23,7 @@ const ColumnContainer = styled.div`
 
 const RowContainer = styled(ColumnContainer)`
   flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export { ColumnContainer, RowContainer };

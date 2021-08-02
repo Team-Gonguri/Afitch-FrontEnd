@@ -7,7 +7,7 @@ function MainLogo() {
   const history = useHistory();
 
   const onLogoClicked = () => {
-    history.push('/ptalk/fitness');
+    history.push('/afitch/fitness');
   };
   return (
     <ColumnContainer
@@ -18,6 +18,7 @@ function MainLogo() {
         borderBottom: '1px solid #E9B3B3',
         paddingTop: '40px',
         paddingLeft: '40px',
+        minWidth: '1440px',
       }}
     >
       <Logo width="150px" height="60px" onClick={onLogoClicked} />
