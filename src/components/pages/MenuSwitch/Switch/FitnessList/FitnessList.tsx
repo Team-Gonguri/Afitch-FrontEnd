@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import Logo from '../../../../../assets/Logo.png';
-import { ColumnContainer, RowContainer } from '../../../../UI/atoms';
+import { RowContainer } from '../../../../UI/atoms';
 import { FitnessCard } from '../../../../UI/molecules';
 
 interface MatchParams {

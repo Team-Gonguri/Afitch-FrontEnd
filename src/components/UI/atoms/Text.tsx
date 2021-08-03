@@ -14,7 +14,7 @@ const Text = styled.div`
   align-items: center;
 
   width: ${(props: TextProps) => (props.width ? props.width : '200px')};
-  height: ${(props: TextProps) => (props.height ? props.height : '40px')};
+  height: ${(props: TextProps) => (props.height ? props.height : '30px')};
   margin-right: ${(props: TextProps) =>
     props.marginRight ? props.marginRight : '0px'};
   margin-bottom: ${(props: TextProps) =>

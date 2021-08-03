@@ -27,14 +27,15 @@ function MenuSwitch() {
   ];
 
   return (
-    <ColumnContainer>
+    <ColumnContainer style={{ minWidth: '1440px' }}>
       <MainLayout />
       <ColumnContainer
-        width="calc(100vw - 355px);"
+        width="calc(100% - 355px);"
         style={{
           position: 'absolute',
           top: '200px',
           left: '300px',
+          minWidth: '1105px',
         }}
       >
         <Switch>
