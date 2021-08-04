@@ -10,16 +10,18 @@ interface FitnessCardProps {
 function FitnessCard({ url, text }: FitnessCardProps) {
   return (
     <ColumnContainer
-      width="calc(80vw/5)"
-      height="calc(80vw/5*1.2)"
+      width="calc(100% / 5)"
       style={{
         paddingTop: '15px',
+        paddingBottom: 'calc(100% / 5 * 1.2)',
         background: 'white',
         border: '1px solid #e9b3b3',
-        margin: '20px 10px',
+        margin: `20px calc(100%/5/8)`,
         cursor: 'pointer',
         position: 'relative',
         fontSize: 'calc(80vw/5/12)',
+        maxWidth: '320px',
+        maxHeight: '384px',
       }}
     >
       <Img

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { RowContainer, Button } from '../../../../UI/atoms';
 import { Category } from '../../../../UI/organisms';
 
 function FitnessCategory() {
@@ -12,13 +11,13 @@ function FitnessCategory() {
     { name: '하체', param: 'lowerbody' },
   ];
 
-  const categoryBtnClicked = (param: string) => {
-    history.push(`/afitch/fitnesslist/${param}`);
-  };
-
   const history = useHistory();
 
-  return <Category category={category} />;
+  return (
+    <>
+      <Category category={category} />
+    </>
+  );
 }
 
 export default FitnessCategory;

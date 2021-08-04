@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import Logo from '../../../../../assets/Logo.png';
-import { RowContainer } from '../../../../UI/atoms';
-import { FitnessCard } from '../../../../UI/molecules';
+import { CardList } from '../../../../UI/organisms';
 
 interface MatchParams {
   fitness: string;
@@ -22,6 +21,8 @@ function FitnessList({ match }: RouteComponentProps<MatchParams>) {
     { url: Logo, text: '푸시업7' },
     { url: Logo, text: '푸시업8' },
     { url: Logo, text: '푸시업9' },
+    { url: Logo, text: '푸시업9' },
+    { url: Logo, text: '푸시업9' },
   ];
 
   useEffect(() => {
@@ -30,11 +31,9 @@ function FitnessList({ match }: RouteComponentProps<MatchParams>) {
   });
 
   return (
-    <RowContainer style={{ justifyContent: 'space-between' }}>
-      {fake.map((v, i) => {
-        return <FitnessCard url={v.url} text={v.text} />;
-      })}
-    </RowContainer>
+    <React.Fragment>
+      <CardList list={fake} />
+    </React.Fragment>
   );
 }
 

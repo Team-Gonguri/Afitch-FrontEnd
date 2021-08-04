@@ -2,13 +2,13 @@ import React from 'react';
 
 import { RowContainer, LLink, Text } from '../atoms';
 
-interface Category {
+interface CategoryProps {
   name: string;
   param: string;
 }
 
 interface Categories {
-  category: Category[];
+  category: CategoryProps[];
 }
 
 function Category({ category }: Categories) {
