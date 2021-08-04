@@ -1,7 +1,12 @@
 import React from 'react';
-import { useHistory, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
-import { FitnessCategory, MyFitness, FitnessList } from './Switch';
+import {
+  FitnessCategory,
+  MyFitness,
+  FitnessList,
+  FitnessVideo,
+} from './Switch';
 import { ColumnContainer } from '../../UI/atoms';
 import { MainLayout } from '../../UI/organisms';
 
@@ -22,6 +27,13 @@ function MenuSwitch() {
         path: '/afitch/fitnesslist/:fitness',
         exact: true,
         component: FitnessList,
+      },
+    },
+    {
+      props: {
+        path: '/afitch/fitnessvideo/:fitness',
+        exact: true,
+        component: FitnessVideo,
       },
     },
   ];

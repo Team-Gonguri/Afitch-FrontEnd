@@ -5,6 +5,7 @@ import { Input, Checkbox } from './Input';
 import { LLink } from './LLink';
 import { Text } from './Text';
 import { Img } from './Img';
+import { Video } from './Video';
 
 export {
   ColumnContainer,
@@ -16,4 +17,5 @@ export {
   LLink,
   Text,
   Img,
+  Video,
 };
