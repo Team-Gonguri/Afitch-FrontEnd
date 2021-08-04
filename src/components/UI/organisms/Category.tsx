@@ -14,10 +14,10 @@ interface Categories {
 function Category({ category }: Categories) {
   return (
     <RowContainer
-      width="100%"
+      width="80%"
       style={{
         paddingTop: '20px',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
       }}
     >
       {category.map((v) => {
@@ -25,17 +25,20 @@ function Category({ category }: Categories) {
           <LLink
             key={v.name}
             width="45%"
+            marginRight="auto"
             to={`/afitch/fitnesslist/${v.param}`}
             style={{
-              paddingBottom: '45%',
+              paddingBottom: 'min(45%, 400px)',
               marginBottom: '20px',
               position: 'relative',
+              maxWidth: '400px',
+              borderRadius: '10px',
             }}
           >
             <Text
               width="100%"
               color="white"
-              fontSize="3em"
+              fontSize="2.5em"
               style={{
                 justifyContent: 'center',
                 position: 'absolute',

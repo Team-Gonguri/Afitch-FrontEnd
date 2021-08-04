@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ColumnContainer, Img, Text } from '../atoms';
+import { ColumnContainer, Img, Text, LLink } from '../atoms';
 
 interface FitnessCardProps {
   url: string;
@@ -9,9 +9,13 @@ interface FitnessCardProps {
 
 function FitnessCard({ url, text }: FitnessCardProps) {
   return (
-    <ColumnContainer
+    <LLink
       width="calc(100% / 5)"
+      to="/"
       style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
         paddingTop: '15px',
         paddingBottom: 'calc(100% / 5 * 1.2)',
         background: 'white',
@@ -40,7 +44,7 @@ function FitnessCard({ url, text }: FitnessCardProps) {
       >
         {text}
       </Text>
-    </ColumnContainer>
+    </LLink>
   );
 }
 
