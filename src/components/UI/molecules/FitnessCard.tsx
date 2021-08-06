@@ -11,7 +11,7 @@ function FitnessCard({ url, text }: FitnessCardProps) {
   return (
     <LLink
       width="calc(100% / 5)"
-      to="/"
+      to={`/afitch/fitnessvideo/${text}`}
       style={{
         display: 'flex',
         flexDirection: 'column',
