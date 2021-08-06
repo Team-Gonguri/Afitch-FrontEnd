@@ -6,6 +6,7 @@ import Profile from './Profile';
 import MainLogo from './MainLogo';
 import MenuBar from './MenuBar';
 import FitnessCard from './FitnessCard';
+import VideoList from './VideoList';
 
 export {
   CheckboxText,
@@ -16,4 +17,5 @@ export {
   MainLogo,
   MenuBar,
   FitnessCard,
+  VideoList,
 };
