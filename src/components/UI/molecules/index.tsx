@@ -7,6 +7,7 @@ import MainLogo from './MainLogo';
 import MenuBar from './MenuBar';
 import FitnessCard from './FitnessCard';
 import VideoList from './VideoList';
+import ComboBox from './ComboBox';
 
 export {
   CheckboxText,
@@ -18,4 +19,5 @@ export {
   MenuBar,
   FitnessCard,
   VideoList,
+  ComboBox,
 };

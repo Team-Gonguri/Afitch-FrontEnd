@@ -1,16 +1,16 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { ColumnContainer, Text } from '../atoms';
+import { ColumnContainer, Text, LLink } from '../atoms';
 
 function MenuBar() {
   const history = useHistory();
 
   const menus = [
     { menuName: '운동 하러 가기', url: '/afitch/fitness' },
-    { menuName: '랭킹 보러 가기', url: '/afitch/fitness' },
-    { menuName: '내가 올린 운동', url: '/afitch/fitness' },
-    { menuName: '내가 먹은 음식', url: '/afitch/fitness' },
+    { menuName: '랭킹 보러 가기', url: '/afitch/rank' },
+    { menuName: '내가 올린 운동', url: '/afitch/myfitness' },
+    { menuName: '내가 먹은 음식', url: '/afitch/mydiet' },
   ];
 
   const menuClicked = (url: string) => {
@@ -34,7 +34,6 @@ function MenuBar() {
             width="200px"
             key={v.menuName}
             style={{
-              paddingLeft: '10px',
               borderBottom: `${
                 i === menus.length - 1 ? '' : '1px solid #E9B3B3'
               }`,
@@ -43,14 +42,23 @@ function MenuBar() {
               menuClicked(v.url);
             }}
           >
-            <Text
-              style={{ cursor: 'pointer' }}
+            <LLink
+              width="200px"
+              height="30px"
+              color="black"
+              to={v.url}
+              style={{
+                textAlign: 'start',
+                cursor: 'pointer',
+                paddingLeft: '10px',
+                background: 'none',
+              }}
               onClick={() => {
                 console.log(v.menuName);
               }}
             >
               {v.menuName}
-            </Text>
+            </LLink>
           </ColumnContainer>
         );
       })}

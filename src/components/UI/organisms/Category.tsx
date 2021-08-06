@@ -24,11 +24,11 @@ function Category({ category }: Categories) {
         return (
           <LLink
             key={v.name}
-            width="45%"
+            width="30%"
             marginRight="auto"
             to={`/afitch/fitnesslist/${v.param}`}
             style={{
-              paddingBottom: 'min(45%, 400px)',
+              paddingBottom: 'min(30%, 400px)',
               marginBottom: '20px',
               position: 'relative',
               maxWidth: '400px',
