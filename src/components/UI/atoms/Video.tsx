@@ -4,7 +4,7 @@ import { DefaultProps } from '../../../entity/components/atoms';
 
 interface VideoProps extends DefaultProps {}
 
-const Video = styled.iframe`
+const Video = styled.video`
   width: ${(props: VideoProps) => (props.width ? props.width : '200px')};
   height: ${(props: VideoProps) => (props.height ? props.height : '40px')};
   margin-right: ${(props: VideoProps) =>

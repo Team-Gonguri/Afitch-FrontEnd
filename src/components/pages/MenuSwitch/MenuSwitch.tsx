@@ -6,6 +6,7 @@ import {
   MyFitness,
   FitnessList,
   FitnessVideo,
+  Ranking,
 } from './Switch';
 import { ColumnContainer } from '../../UI/atoms';
 import { MainLayout } from '../../UI/organisms';
@@ -34,6 +35,13 @@ function MenuSwitch() {
         path: '/afitch/fitnessvideo/:fitness',
         exact: true,
         component: FitnessVideo,
+      },
+    },
+    {
+      props: {
+        path: '/afitch/rank',
+        exact: true,
+        component: Ranking,
       },
     },
   ];

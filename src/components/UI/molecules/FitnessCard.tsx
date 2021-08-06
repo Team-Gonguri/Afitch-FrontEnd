@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ColumnContainer, Img, Text, LLink } from '../atoms';
+import { ColumnContainer, Img, Text, LLink, Video } from '../atoms';
 
 interface FitnessCardProps {
   url: string;
@@ -10,14 +10,14 @@ interface FitnessCardProps {
 function FitnessCard({ url, text }: FitnessCardProps) {
   return (
     <LLink
-      width="calc(100% / 5)"
+      width="calc(100% / 7)"
       to={`/afitch/fitnessvideo/${text}`}
       style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         paddingTop: '15px',
-        paddingBottom: 'calc(100% / 5 * 1.2)',
+        paddingBottom: 'calc(100% / 7 * 0.85)',
         background: 'white',
         border: '1px solid #e9b3b3',
         margin: `20px calc(100%/5/8)`,
@@ -28,18 +28,22 @@ function FitnessCard({ url, text }: FitnessCardProps) {
         maxHeight: '384px',
       }}
     >
-      <Img
-        width="80%"
-        height="40%"
-        url={url}
-        style={{ position: 'absolute', top: '10%' }}
+      <Video
+        src={url}
+        muted
+        style={{
+          position: 'absolute',
+          top: '0%',
+          width: '95%',
+          height: '60%',
+        }}
       />
       <Text
-        fontSize="1em"
+        fontSize="0.8em"
         style={{
           justifyContent: 'center',
           position: 'absolute',
-          bottom: '18%',
+          bottom: '13%',
         }}
       >
         {text}

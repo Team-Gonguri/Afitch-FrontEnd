@@ -32,7 +32,7 @@ const LLink = styled(Link)`
   text-align: center;
 
   font-style: normal;
-  font-weight: bold;
+  font-weight: 200;
   font-size: 15px;
   line-height: ${(props: LLinkProps) => (props.height ? props.height : '40px')};
   color: ${(props: LLinkProps) => (props.color ? props.color : '#ffffff')};
