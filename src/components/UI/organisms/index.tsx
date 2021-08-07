@@ -4,7 +4,7 @@ import Category from './Category';
 import CardList from './CardList';
 import FitnessVideoList from './FitnessVideoList';
 import RankComboBox from './RankComboBox';
-import RankList from './RankList';
+import UserFitnessList from './UserFitnessList';
 import ReplyWindow from './ReplyWindow';
 
 export {
@@ -14,6 +14,6 @@ export {
   CardList,
   FitnessVideoList,
   RankComboBox,
-  RankList,
+  UserFitnessList,
   ReplyWindow,
 };
