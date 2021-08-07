@@ -9,6 +9,9 @@ function InputBoxButton({
   type,
   marginBottom,
   btnText,
+  iWidth,
+  bWidth,
+  onClick,
 }: InputBoxButtonProps) {
   const [iText, setIText] = useState('');
 
@@ -26,7 +29,7 @@ function InputBoxButton({
         style={{ justifyContent: 'space-between' }}
       >
         <Input
-          width="60%"
+          width={iWidth ? iWidth : '60%'}
           type={type}
           ref={iRef}
           value={iText}
@@ -34,7 +37,15 @@ function InputBoxButton({
             onChange(e);
           }}
         />
-        <Button width="30%">{btnText}</Button>
+        <Button
+          width={bWidth ? bWidth : '30%'}
+          onClick={() => {
+            onClick && onClick();
+            setIText('');
+          }}
+        >
+          {btnText}
+        </Button>
       </RowContainer>
     </ColumnContainer>
   );

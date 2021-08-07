@@ -5,6 +5,7 @@ import CardList from './CardList';
 import FitnessVideoList from './FitnessVideoList';
 import RankComboBox from './RankComboBox';
 import RankList from './RankList';
+import ReplyWindow from './ReplyWindow';
 
 export {
   SignUpForm,
@@ -14,4 +15,5 @@ export {
   FitnessVideoList,
   RankComboBox,
   RankList,
+  ReplyWindow,
 };
