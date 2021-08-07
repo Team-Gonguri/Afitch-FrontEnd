@@ -5,13 +5,14 @@ import { ColumnContainer, Img, Text, LLink, Video } from '../atoms';
 interface FitnessCardProps {
   url: string;
   text: string;
+  to?: string;
 }
 
-function FitnessCard({ url, text }: FitnessCardProps) {
+function FitnessCard({ url, text, to }: FitnessCardProps) {
   return (
     <LLink
       width="calc(100% / 7)"
-      to={`/afitch/fitnessvideo/${text}`}
+      to={to ? to : `/afitch/fitnessvideo/${text}`}
       style={{
         display: 'flex',
         flexDirection: 'column',
