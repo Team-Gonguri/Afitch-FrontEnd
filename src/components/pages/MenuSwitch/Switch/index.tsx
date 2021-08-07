@@ -3,5 +3,13 @@ import { FitnessList } from './FitnessList';
 import { FitnessVideo } from './FitnessVideo';
 import { MyFitness } from './MyFitness';
 import { Ranking } from './Ranking';
+import { Comment } from './Comment';
 
-export { FitnessCategory, FitnessList, FitnessVideo, MyFitness, Ranking };
+export {
+  FitnessCategory,
+  FitnessList,
+  FitnessVideo,
+  MyFitness,
+  Ranking,
+  Comment,
+};
