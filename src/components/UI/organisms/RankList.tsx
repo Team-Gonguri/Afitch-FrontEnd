@@ -46,7 +46,14 @@ function RankList() {
   return (
     <RowContainer width="100%">
       {dummy.map((v) => {
-        return <FitnessCard key={v.text} text={v.text} url={v.url} />;
+        return (
+          <FitnessCard
+            key={v.text}
+            text={v.text}
+            url={v.url}
+            to={`/afitch/comment/${v.text}`}
+          />
+        );
       })}
     </RowContainer>
   );
