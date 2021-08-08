@@ -9,6 +9,8 @@ import FitnessCard from './FitnessCard';
 import VideoList from './VideoList';
 import ComboBox from './ComboBox';
 import Reply from './Reply';
+import DateDisplay from './DateDisplay';
+import Diet from './Diet';
 
 export {
   CheckboxText,
@@ -22,4 +24,6 @@ export {
   VideoList,
   ComboBox,
   Reply,
+  DateDisplay,
+  Diet,
 };
