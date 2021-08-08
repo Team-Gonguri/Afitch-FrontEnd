@@ -8,6 +8,7 @@ import {
   FitnessVideo,
   Ranking,
   Comment,
+  MyDiet,
 } from './Switch';
 import { ColumnContainer } from '../../UI/atoms';
 import { MainLayout } from '../../UI/organisms';
@@ -50,6 +51,13 @@ function MenuSwitch() {
         path: '/afitch/comment/:id',
         exact: true,
         component: Comment,
+      },
+    },
+    {
+      props: {
+        path: '/afitch/mydiet',
+        exact: true,
+        component: MyDiet,
       },
     },
   ];
