@@ -3,8 +3,8 @@ import React from 'react';
 import { ColumnContainer, RowContainer, Button } from '../UI/atoms';
 
 interface ModalProps {
-  visible: boolean;
-  setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  visible: boolean | undefined;
+  setVisible: React.Dispatch<React.SetStateAction<boolean | undefined>>;
   children: JSX.Element;
 }
 

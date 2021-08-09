@@ -9,6 +9,7 @@ import {
   Ranking,
   Comment,
   MyDiet,
+  DetailDiet,
 } from './Switch';
 import { ColumnContainer } from '../../UI/atoms';
 import { MainLayout } from '../../UI/organisms';
@@ -58,6 +59,13 @@ function MenuSwitch() {
         path: '/afitch/mydiet',
         exact: true,
         component: MyDiet,
+      },
+    },
+    {
+      props: {
+        path: '/afitch/mydiet/detail',
+        exact: true,
+        component: DetailDiet,
       },
     },
   ];

@@ -9,11 +9,12 @@ import { Modal } from '../../../../templates';
 
 function MyDiet() {
   const [date, setDate] = useState(new Date());
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState<boolean | undefined>();
 
   useEffect(() => {
     console.log(date);
-    setVisible(!visible);
+    if (visible === undefined) setVisible(false);
+    else setVisible(!visible);
   }, [date]);
 
   return (
