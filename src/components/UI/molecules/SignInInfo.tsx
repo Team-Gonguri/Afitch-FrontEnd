@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { ColumnContainer, Input, Button } from '../atoms';
 import { signIn } from '../../../repo/auth';
 import useUser from '../../../hook/useUser';
+import useLocalStorage from '../../../hook/useLocalStorage';
 
-function SignInInfo() {
+interface SignInInfoProps {
+  remember: boolean;
+  setRemember: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function SignInInfo({ remember, setRemember }: SignInInfoProps) {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const { setUser } = useUser();
+  const { getLocalStorage, setLocalStorage, removeLocalStorage } =
+    useLocalStorage();
   const history = useHistory();
+
+  const initId = () => {
+    const data = getLocalStorage('afitch-id');
+    if (data) {
+      setId(data);
+      setRemember(true);
+    }
+  };
+
+  useEffect(initId, []);
 
   const inputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -34,6 +52,12 @@ function SignInInfo() {
     signIn(payload)
       .then((d) => {
         setUser({ id, nickName: '', accessToken: d.data.accessToken });
+        if (remember) {
+          setLocalStorage('afitch-id', id);
+        } else {
+          removeLocalStorage('afitch-id');
+        }
+
         history.replace('/afitch/fitness');
       })
       .catch((e) => {
