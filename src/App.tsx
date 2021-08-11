@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import GlobalStyle from './GlobalStyle';
 
 import Router from './Router';
@@ -6,8 +7,10 @@ import Router from './Router';
 function App() {
   return (
     <React.Fragment>
-      <GlobalStyle />
-      <Router />
+      <RecoilRoot>
+        <GlobalStyle />
+        <Router />
+      </RecoilRoot>
     </React.Fragment>
   );
 }
