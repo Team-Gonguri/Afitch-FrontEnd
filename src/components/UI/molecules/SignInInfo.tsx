@@ -1,16 +1,45 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { ColumnContainer, Input, Button } from '../atoms';
+import { signIn } from '../../../repo/auth';
+import useUser from '../../../hook/useUser';
 
 function SignInInfo() {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+  const { setUser } = useUser();
+  const history = useHistory();
 
   const inputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     set: React.Dispatch<React.SetStateAction<string>>,
   ) => {
     set(e.target.value);
+  };
+
+  const signInBtnClicked = () => {
+    if (!id) {
+      alert('아이디를 입력하세요.');
+      return;
+    }
+
+    if (!pw) {
+      alert('비밀번호를 입력하세요.');
+      return;
+    }
+
+    const payload = { accountId: id, password: pw };
+
+    signIn(payload)
+      .then((d) => {
+        setUser({ id, nickName: '', accessToken: d.data.accessToken });
+        history.replace('/afitch/fitness');
+      })
+      .catch((e) => {
+        console.error(e);
+        alert('아이디/비밀번호가 일치하지 않습니다.');
+      });
   };
 
   return (
@@ -32,7 +61,7 @@ function SignInInfo() {
           inputChange(e, setPw);
         }}
       />
-      <Button marginBottom="12px" width="380px">
+      <Button marginBottom="12px" width="380px" onClick={signInBtnClicked}>
         로그인
       </Button>
     </ColumnContainer>

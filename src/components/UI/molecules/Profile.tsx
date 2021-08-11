@@ -2,12 +2,23 @@ import React from 'react';
 
 import { ColumnContainer, Img, Button, Text } from '../atoms';
 import Logo from '../../../assets/Logo.png';
+import useUser from '../../../hook/useUser';
 
 interface ProfileProps {
   url?: string;
 }
 
 function Profile({ url }: ProfileProps) {
+  const { user, setUser } = useUser();
+
+  const logOutBtnClicked = () => {
+    setUser({
+      id: '',
+      nickName: '',
+      accessToken: '',
+    });
+  };
+
   return (
     <ColumnContainer
       width="200px"
@@ -27,21 +38,26 @@ function Profile({ url }: ProfileProps) {
         marginBottom="20px"
         url={url ? url : Logo}
       />
-      <Text height="22px" style={{ justifyContent: 'center' }}>
-        id
-      </Text>
       <Text
+        height="22px"
+        marginBottom="20px"
+        style={{ justifyContent: 'center' }}
+      >
+        {user.id}
+      </Text>
+      {/* <Text
         height="22px"
         style={{ justifyContent: 'center' }}
         marginBottom="10px"
       >
-        닉네임
-      </Text>
+        {user.nickName}
+      </Text> */}
       <Button
         width="144px"
         height="23px"
         style={{ fontWeight: 'normal' }}
         color="black"
+        onClick={logOutBtnClicked}
       >
         로그아웃
       </Button>
