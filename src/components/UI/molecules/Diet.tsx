@@ -20,7 +20,7 @@ function Diet({ meal, calorie }: DietProps) {
       <Text fontSize="18px" fontWeight="300">
         {calorie}
       </Text>
-      <LLink to="/">자세히보기</LLink>
+      <LLink to="/afitch/mydiet/detail">자세히보기</LLink>
     </RowContainer>
   );
 }

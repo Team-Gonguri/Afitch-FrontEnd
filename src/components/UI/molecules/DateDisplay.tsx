@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { RowContainer, Text } from '../../UI/atoms';
-import useDateParsing from '../../../hook/dateParsing';
+import useDateParsing from '../../../hook/useDateParsing';
 
 interface DateDisplayProps {
   date: Date;

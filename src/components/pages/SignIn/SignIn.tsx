@@ -15,7 +15,7 @@ function SignIn() {
   return (
     <ColumnContainer padding="15vh">
       <Logo marginBottom="3vh" />
-      <SignInInfo />
+      <SignInInfo remember={check} setRemember={setCheck} />
       <Button
         border="1px solid #e9b3b3"
         background="none"
@@ -29,7 +29,7 @@ function SignIn() {
       <CheckboxText
         width="380px"
         marginBottom="30px"
-        text="로그인 유지하기"
+        text="아이디 저장하기"
         check={check}
         setCheck={setCheck}
       />

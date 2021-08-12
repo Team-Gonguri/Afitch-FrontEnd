@@ -5,6 +5,7 @@ import { MyFitness } from './MyFitness';
 import { Ranking } from './Ranking';
 import { Comment } from './Comment';
 import { MyDiet } from './MyDiet';
+import { DetailDiet } from './DetailDiet';
 
 export {
   FitnessCategory,
@@ -14,4 +15,5 @@ export {
   Ranking,
   Comment,
   MyDiet,
+  DetailDiet,
 };
