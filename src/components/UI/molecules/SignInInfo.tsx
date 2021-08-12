@@ -51,6 +51,11 @@ function SignInInfo({ remember, setRemember }: SignInInfoProps) {
 
     signIn(payload)
       .then((d) => {
+        setLocalStorage('afitch-login', {
+          id,
+          nickName: '',
+          accessToken: d.data.accessToken,
+        });
         setUser({ id, nickName: '', accessToken: d.data.accessToken });
         if (remember) {
           setLocalStorage('afitch-id', id);

@@ -1,53 +1,22 @@
 import React from 'react';
 
-import { RowContainer, LLink, Text } from '../atoms';
+import { RowContainer, CategoryLink, CategoryText } from '../atoms';
 
 interface CategoryProps {
-  name: string;
-  param: string;
+  categories: string[];
 }
 
-interface Categories {
-  category: CategoryProps[];
-}
-
-function Category({ category }: Categories) {
+function Category({ categories }: CategoryProps) {
+  console.log(categories);
   return (
-    <RowContainer
-      width="80%"
-      style={{
-        paddingTop: '20px',
-        justifyContent: 'space-around',
-      }}
-    >
-      {category.map((v) => {
+    <RowContainer width="80%" padding="20px 0 0 0">
+      {categories.map((v) => {
         return (
-          <LLink
-            key={v.name}
-            width="30%"
-            marginRight="auto"
-            to={`/afitch/fitnesslist/${v.param}`}
-            style={{
-              paddingBottom: 'min(30%, 400px)',
-              marginBottom: '20px',
-              position: 'relative',
-              maxWidth: '400px',
-              borderRadius: '10px',
-            }}
-          >
-            <Text
-              width="100%"
-              color="white"
-              fontSize="2.5em"
-              style={{
-                justifyContent: 'center',
-                position: 'absolute',
-                bottom: '10%',
-              }}
-            >
-              {v.name}
-            </Text>
-          </LLink>
+          <CategoryLink key={v} width="30%" to={`/afitch/fitnesslist/${v}`}>
+            <CategoryText width="100%" color="white" fontSize="2.5em">
+              {v}
+            </CategoryText>
+          </CategoryLink>
         );
       })}
     </RowContainer>

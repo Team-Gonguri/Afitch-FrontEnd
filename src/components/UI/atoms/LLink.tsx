@@ -38,4 +38,17 @@ const LLink = styled(Link)`
   color: ${(props: LLinkProps) => (props.color ? props.color : '#ffffff')};
 `;
 
-export { LLink };
+const CategoryLink = styled(LLink)`
+  position: relative;
+
+  max-width: 400px;
+
+  padding-bottom: min(30%, 400px);
+  margin-bottom: 20px;
+
+  border-radius: 10px;
+  margin-left: calc(10% / 6);
+  margin-right: calc(10% / 6);
+`;
+
+export { LLink, CategoryLink };

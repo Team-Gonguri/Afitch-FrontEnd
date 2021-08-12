@@ -3,6 +3,7 @@ import React from 'react';
 import { ColumnContainer, Img, Button, Text } from '../atoms';
 import Logo from '../../../assets/Logo.png';
 import useUser from '../../../hook/useUser';
+import useLocalStorage from '../../../hook/useLocalStorage';
 
 interface ProfileProps {
   url?: string;
@@ -10,6 +11,7 @@ interface ProfileProps {
 
 function Profile({ url }: ProfileProps) {
   const { user, setUser } = useUser();
+  const { removeLocalStorage } = useLocalStorage();
 
   const logOutBtnClicked = () => {
     setUser({
@@ -17,6 +19,7 @@ function Profile({ url }: ProfileProps) {
       nickName: '',
       accessToken: '',
     });
+    removeLocalStorage('afitch-login');
   };
 
   return (
