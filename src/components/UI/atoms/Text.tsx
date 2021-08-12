@@ -29,4 +29,10 @@ const Text = styled.div`
   color: ${(props: TextProps) => (props.color ? props.color : 'black')};
 `;
 
-export { Text };
+const CategoryText = styled(Text)`
+  justifycontent: center;
+  position: absolute;
+  bottom: 10%;
+`;
+
+export { Text, CategoryText };

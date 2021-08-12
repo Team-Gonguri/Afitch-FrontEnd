@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Category } from '../../../../UI/organisms';
+import useUser from '../../../../../hook/useUser';
+import { getCategories } from '../../../../../repo/exercise-controller';
 
 function FitnessCategory() {
-  const category = [
-    { name: '어깨', param: 'shoulder' },
-    { name: '등', param: 'back' },
-    { name: '복부', param: 'abdominal' },
-    { name: '하체', param: 'lowerbody' },
-  ];
+  const [categories, setCategories] = useState<string[]>([]);
+  const { user } = useUser();
+
+  useEffect(() => {
+    getCategories(user.accessToken).then((d) => {
+      setCategories(d.data.categories);
+    });
+  }, []);
 
   const history = useHistory();
 
   return (
     <>
-      <Category category={category} />
+      <Category categories={categories} />
     </>
   );
 }
