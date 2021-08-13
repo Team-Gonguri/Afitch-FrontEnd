@@ -5,6 +5,7 @@ import { ColumnContainer, Input, Button } from '../atoms';
 import { signIn } from '../../../repo/auth';
 import useUser from '../../../hook/useUser';
 import useLocalStorage from '../../../hook/useLocalStorage';
+import { makeAccessToken } from '../../../repo/_axios';
 
 interface SignInInfoProps {
   remember: boolean;
@@ -51,12 +52,18 @@ function SignInInfo({ remember, setRemember }: SignInInfoProps) {
 
     signIn(payload)
       .then((d) => {
+        console.log(d);
+        console.log(d.data.access.token);
         setLocalStorage('afitch-login', {
           id,
           nickName: '',
-          accessToken: d.data.accessToken,
+          accessToken: makeAccessToken(d.data.access.token),
         });
-        setUser({ id, nickName: '', accessToken: d.data.accessToken });
+        setUser({
+          id,
+          nickName: '',
+          accessToken: makeAccessToken(d.data.access.token),
+        });
         if (remember) {
           setLocalStorage('afitch-id', id);
         } else {

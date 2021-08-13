@@ -1,5 +1,7 @@
+import { Authorities } from './default';
+
 export interface GetUserInfoParmas {
-  authorities: 'ROLE_USER' | 'ROLE_ADMIN';
+  authorities: Authorities;
   id: number;
 }
 
@@ -10,9 +12,26 @@ export interface DetailUserInfoResponse {
   weight: number;
 }
 
-export interface SimpleExerciseParticipationDto {
+interface SimpleExerciseParticipationDto {
   id: number;
   scope: 'PUBLIC' | 'PRIVATE';
   score: number;
   userName: string;
+}
+
+export interface UpdateUserInfoParams {
+  authorities: Authorities;
+  id: number;
+}
+
+export interface UpdateUserInfoRequest {
+  height: number;
+  nickName: string;
+  weight: number;
+}
+
+export interface SimpleUserInfoResponse {
+  height: number;
+  nickName: string;
+  weight: number;
 }
