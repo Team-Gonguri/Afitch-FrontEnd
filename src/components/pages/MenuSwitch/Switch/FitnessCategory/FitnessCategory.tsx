@@ -11,7 +11,7 @@ function FitnessCategory() {
 
   useEffect(() => {
     getCategories(user.accessToken).then((d) => {
-      setCategories(d.data.categories);
+      console.log(d.data.categories);
     });
   }, []);
 
