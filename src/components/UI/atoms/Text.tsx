@@ -30,7 +30,7 @@ const Text = styled.div`
 `;
 
 const CategoryText = styled(Text)`
-  justifycontent: center;
+  justify-content: center;
   position: absolute;
   bottom: 10%;
 `;

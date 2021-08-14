@@ -35,7 +35,7 @@ function MenuSwitch() {
     },
     {
       props: {
-        path: '/afitch/fitnessvideo/:fitness',
+        path: '/afitch/fitnessvideo/:id',
         exact: true,
         component: FitnessVideo,
       },

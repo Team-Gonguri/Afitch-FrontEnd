@@ -1,6 +1,4 @@
-export interface CategoryType {
-  category: 'WHOLE' | 'ARM' | 'LEG' | 'ABDOMINAL' | 'CHEST';
-}
+import { CategoryType } from './default';
 
 export interface GetExercisesRes {
   exercises: SimpleExerciseDto[];
@@ -16,7 +14,7 @@ export interface GetExercisesParams {
 }
 
 export interface GetExerciseDetailParams {
-  exerciseId: string;
+  exerciseId: number;
 }
 
 export interface GetExerciseDetailRes {
@@ -26,5 +24,5 @@ export interface GetExerciseDetailRes {
 }
 
 export interface GetCategoriesRes {
-  categories: CategoryType;
+  categories: CategoryType[];
 }

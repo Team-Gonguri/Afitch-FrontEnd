@@ -7,16 +7,18 @@ import { UserFitness } from '../../../entity/components/organisms';
 function UserFitnessList({ fitness }: UserFitness) {
   return (
     <RowContainer width="100%">
-      {fitness.map((v) => {
-        return (
-          <FitnessCard
-            key={v.text}
-            text={v.text}
-            url={v.url}
-            to={`/afitch/comment/${v.text}`}
-          />
-        );
-      })}
+      {fitness &&
+        fitness.map((v) => {
+          return (
+            <FitnessCard
+              key={v.name}
+              id={v.id}
+              name={v.name}
+              url={v.url}
+              to={`/afitch/comment/${v.name}`}
+            />
+          );
+        })}
     </RowContainer>
   );
 }
