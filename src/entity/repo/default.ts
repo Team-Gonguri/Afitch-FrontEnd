@@ -1,8 +1,6 @@
 export type Authorities = 'ROLE_USER' | 'ROLE_ADMIN';
 
-export interface CategoryType {
-  category: 'WHOLE' | 'ARM' | 'LEG' | 'ABDOMINAL' | 'CHEST';
-}
+export type CategoryType = 'WHOLE' | 'ARM' | 'LEG' | 'ABDOMINAL' | 'CHEST';
 
 export interface Food {
   foodCategory: string;

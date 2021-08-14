@@ -30,10 +30,10 @@ function ComboBox({ label, comboName, options, setData }: ComboBoxProps) {
           onChange(e);
         }}
       >
-        <option value="none">--------</option>
-        {options.map((v) => {
+        <option value="">--------</option>
+        {options.map((v, i) => {
           return (
-            <option key={v.value} value={v.value}>
+            <option key={i} value={v.value}>
               {v.text}
             </option>
           );

@@ -2,40 +2,64 @@ import React, { useState, useEffect } from 'react';
 
 import { RowContainer } from '../atoms';
 import { ComboBox } from '../molecules';
+import useUser from '../../../hook/useUser';
+import { getCategories } from '../../../repo/exercise-controller';
+import { CategoryType } from '../../../entity/repo/default';
 
-function RankComboBox() {
+interface RankComboBoxProps {
+  setValues: any;
+}
+
+interface Option {
+  value: string;
+  text: string;
+}
+
+function RankComboBox({ setValues }: RankComboBoxProps) {
+  const { user } = useUser();
+
+  const [categories, setCategories] = useState<Option[]>([]);
+  const [exercises, setExercises] = useState<Option[]>([]);
+
   const [category, setCategory] = useState('');
   const [fitness, setFitness] = useState('');
   const [order, setOrder] = useState('');
 
-  const setValues = () => {
+  const setCombo = () => {
     const data = { category, fitness, order };
-    console.log(data);
+    setValues(data);
   };
 
-  useEffect(setValues, [category, fitness, order]);
+  useEffect(setCombo, [category, fitness, order]);
+
+  useEffect(() => {
+    getCategories(user.accessToken).then((d) => {
+      const temp = d.data.categories.map((v) => {
+        return { value: v, text: v };
+      });
+      setCategories([...temp]);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (category) {
+      console.log(exercises);
+    } else {
+      setExercises([]);
+    }
+  }, [category]);
 
   const comboBoxes = [
     {
       label: '카테고리',
       comboName: 'category',
-      options: [
-        { value: 'back', text: '등' },
-        { value: 'shoulder', text: '어깨' },
-        { value: 'abdominal', text: '복부' },
-        { value: 'lowerbody', text: '하체' },
-      ],
+      options: categories,
       setData: setCategory,
     },
     {
       label: '운동',
       comboName: 'fitness',
-      options: [
-        { value: 'pushup1', text: '푸시업1' },
-        { value: 'pushup2', text: '푸시업2' },
-        { value: 'pushup3', text: '푸시업3' },
-        { value: 'pushup4', text: '푸시업4' },
-      ],
+      options: exercises,
       setData: setFitness,
     },
     {
