@@ -54,7 +54,7 @@ export interface GetPariticpantsRes {
   lists: SimpleExerciseParticipationDto[];
 }
 
-interface SimpleExerciseParticipationDto {
+export interface SimpleExerciseParticipationDto {
   id: number;
   scope: 'PUBLIC' | 'PRIVATE';
   score: number;

@@ -3,15 +3,20 @@ import React, { useState, useEffect } from 'react';
 import { RowContainer } from '../atoms';
 import { ComboBox } from '../molecules';
 import useUser from '../../../hook/useUser';
-import { getCategories } from '../../../repo/exercise-controller';
-import { CategoryType } from '../../../entity/repo/default';
+import { getCategories, getExercises } from '../../../repo/exercise-controller';
+
+interface ValuesEntity {
+  category: string;
+  fitness: string;
+  order: string;
+}
 
 interface RankComboBoxProps {
-  setValues: any;
+  setValues: React.Dispatch<React.SetStateAction<ValuesEntity>>;
 }
 
 interface Option {
-  value: string;
+  value: string | number;
   text: string;
 }
 
@@ -26,8 +31,10 @@ function RankComboBox({ setValues }: RankComboBoxProps) {
   const [order, setOrder] = useState('');
 
   const setCombo = () => {
-    const data = { category, fitness, order };
-    setValues(data);
+    const data: ValuesEntity = { category, fitness, order };
+    if (category && fitness && order) {
+      setValues(data);
+    }
   };
 
   useEffect(setCombo, [category, fitness, order]);
@@ -37,13 +44,20 @@ function RankComboBox({ setValues }: RankComboBoxProps) {
       const temp = d.data.categories.map((v) => {
         return { value: v, text: v };
       });
+
       setCategories([...temp]);
     });
   }, []);
 
   useEffect(() => {
     if (category) {
-      console.log(exercises);
+      setFitness('');
+      getExercises(user.accessToken, { category }).then((d) => {
+        const temp = d.data.exercises.map((v) => {
+          return { value: v.id, text: v.name };
+        });
+        setExercises([...temp]);
+      });
     } else {
       setExercises([]);
     }
@@ -54,21 +68,24 @@ function RankComboBox({ setValues }: RankComboBoxProps) {
       label: '카테고리',
       comboName: 'category',
       options: categories,
+      data: category,
       setData: setCategory,
     },
     {
       label: '운동',
       comboName: 'fitness',
       options: exercises,
+      data: fitness,
       setData: setFitness,
     },
     {
       label: '정렬',
       comboName: 'order',
       options: [
-        { value: 'rank', text: '랭킹' },
-        { value: 'new', text: '신규' },
+        { value: 'RANKING', text: '랭킹' },
+        { value: 'LATEST', text: '신규' },
       ],
+      data: order,
       setData: setOrder,
     },
   ];
@@ -82,6 +99,7 @@ function RankComboBox({ setValues }: RankComboBoxProps) {
             label={v.label}
             comboName={v.comboName}
             options={v.options}
+            data={v.data}
             setData={v.setData}
           />
         );

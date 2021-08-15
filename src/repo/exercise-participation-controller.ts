@@ -48,6 +48,7 @@ export async function getParticipants(
   accessToken: string,
   { exerciseId, ...params }: GetPariticpantsParams,
 ) {
+  console.log(params);
   const req = await axios.get<GetPariticpantsRes>(
     `/exercises/${exerciseId}/participation/list`,
     {

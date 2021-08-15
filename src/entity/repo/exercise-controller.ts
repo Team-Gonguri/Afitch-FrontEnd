@@ -10,7 +10,7 @@ export interface SimpleExerciseDto {
 }
 
 export interface GetExercisesParams {
-  category: CategoryType;
+  category: CategoryType | string;
 }
 
 export interface GetExerciseDetailParams {

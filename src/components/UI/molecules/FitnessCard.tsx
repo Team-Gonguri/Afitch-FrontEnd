@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ColumnContainer, Img, Text, LLink, Video } from '../atoms';
+import { Text, LLink, Video } from '../atoms';
 
 interface FitnessCardProps {
   name: string;
@@ -10,6 +10,7 @@ interface FitnessCardProps {
 }
 
 function FitnessCard({ name, id, to }: FitnessCardProps) {
+  console.log(to);
   return (
     <LLink
       width="calc(100% / 7)"

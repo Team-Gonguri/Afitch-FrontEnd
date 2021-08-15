@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { RowContainer, Text } from '../atoms';
 
 interface Option {
-  value: string;
+  value: string | number;
   text: string;
 }
 
@@ -11,10 +11,11 @@ interface ComboBoxProps {
   label: string;
   comboName: string;
   options: Option[];
-  setData: React.Dispatch<React.SetStateAction<string>>;
+  data: string;
+  setData: React.Dispatch<React.SetStateAction<any>>;
 }
 
-function ComboBox({ label, comboName, options, setData }: ComboBoxProps) {
+function ComboBox({ label, comboName, options, data, setData }: ComboBoxProps) {
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setData(e.target.value);
   };
@@ -26,6 +27,7 @@ function ComboBox({ label, comboName, options, setData }: ComboBoxProps) {
       </Text>
       <select
         name={comboName}
+        value={data}
         onChange={(e) => {
           onChange(e);
         }}
