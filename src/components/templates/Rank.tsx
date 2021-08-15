@@ -38,7 +38,10 @@ function Rank() {
         order: values.order,
       }).then((d) => {
         const temp = d.data.lists.map((v) => {
-          return { id: v.id, name: v.userName };
+          return {
+            id: v.id,
+            name: v.userName,
+          };
         });
         setList([...temp]);
       });
@@ -48,7 +51,7 @@ function Rank() {
   return (
     <ColumnContainer width="100%">
       <RankComboBox setValues={setValues} />
-      <UserFitnessList fitness={list} />
+      <UserFitnessList fitness={list} exerciseId={values.fitness} />
     </ColumnContainer>
   );
 }

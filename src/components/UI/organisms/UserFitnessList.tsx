@@ -4,7 +4,7 @@ import { RowContainer } from '../atoms';
 import { FitnessCard } from '../molecules';
 import { UserFitness } from '../../../entity/components/organisms';
 
-function UserFitnessList({ fitness }: UserFitness) {
+function UserFitnessList({ fitness, exerciseId }: UserFitness) {
   return (
     <RowContainer width="100%">
       {fitness &&
@@ -15,7 +15,7 @@ function UserFitnessList({ fitness }: UserFitness) {
               id={v.id}
               name={v.name}
               url={v.url}
-              to={`/afitch/comment/${v.name}`}
+              to={`/afitch/comment/${exerciseId}/${v.id}`}
             />
           );
         })}

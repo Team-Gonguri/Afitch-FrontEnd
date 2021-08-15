@@ -49,7 +49,7 @@ function MenuSwitch() {
     },
     {
       props: {
-        path: '/afitch/comment/:id',
+        path: '/afitch/comment/:exerciseId/:userId',
         exact: true,
         component: Comment,
       },

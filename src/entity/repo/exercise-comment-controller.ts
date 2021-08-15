@@ -1,10 +1,10 @@
 import { Authorities } from './default';
 
 export interface CreateCommentParams {
-  authorities: Authorities;
   exerciseId: number;
-  id: number;
   participationId: number;
+  authorities?: Authorities;
+  id?: number;
 }
 
 export interface CreateCommentReq {

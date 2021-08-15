@@ -24,9 +24,7 @@ export async function createComment(
       headers: {
         Authorization: accessToken,
       },
-      params: {
-        ...params,
-      },
+      params: { ...params },
     },
   );
 
@@ -46,9 +44,7 @@ export async function modifyComment(
       headers: {
         Authorization: accessToken,
       },
-      params: {
-        ...params,
-      },
+      params: { ...params },
     },
   );
 

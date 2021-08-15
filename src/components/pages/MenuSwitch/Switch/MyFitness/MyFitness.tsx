@@ -15,7 +15,7 @@ function MyFitness() {
       >
         내 운동
       </Text>
-      <UserFitnessList fitness={[]} />
+      <UserFitnessList fitness={[]} exerciseId={''} />
     </ColumnContainer>
   );
 }

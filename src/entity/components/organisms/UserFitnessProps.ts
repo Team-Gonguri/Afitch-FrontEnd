@@ -6,4 +6,5 @@ interface UserFitnessListProps {
 
 export interface UserFitness {
   fitness: UserFitnessListProps[];
+  exerciseId: string;
 }

@@ -36,9 +36,10 @@ export interface GetParticipantDetailRes {
   id: number;
   nickName: string;
   score: number;
+  url: string;
 }
 
-interface ExerciseCommentDto {
+export interface ExerciseCommentDto {
   createdAt: string;
   id: number;
   nickName: string;

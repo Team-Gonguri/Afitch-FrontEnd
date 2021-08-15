@@ -2,46 +2,38 @@ import React, { useRef, useEffect, useState } from 'react';
 
 import { ColumnContainer, RowContainer, Text } from '../atoms';
 import { InputBoxButton, Reply } from '../molecules';
+import { ExerciseCommentDto } from '../../../entity/repo/exercise-participation-controller';
+import { createComment } from '../../../repo/exercise-comment-controller';
+import useUser from '../../../hook/useUser';
 
-interface ReEntiry {
-  id: string;
-  contents: string;
+interface ReplyWindowProps {
+  comments: ExerciseCommentDto[];
+  refresh: () => void;
+  exerciseId: string;
+  participantId: string;
 }
 
-function ReplyWindow() {
+function ReplyWindow({
+  comments,
+  refresh,
+  exerciseId,
+  participantId,
+}: ReplyWindowProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [re, setRe] = useState<ReEntiry[]>([
-    {
-      id: '1',
-      contents: '와',
-    },
-    {
-      id: '2',
-      contents: '대단해요',
-    },
-    {
-      id: '3',
-      contents: '조금 아쉽네요',
-    },
-    {
-      id: '4',
-      contents: '깔끔해요',
-    },
-    {
-      id: '5',
-      contents: '멋있어요',
-    },
-  ]);
 
-  useEffect(() => {
-    console.log(re);
-  }, [re]);
+  const { user } = useUser();
+  const [reply, setReply] = useState(comments);
 
   const onClick = () => {
     if (inputRef.current && inputRef.current.value) {
-      const temp = re;
-      temp.push({ id: '6', contents: inputRef.current.value });
-      setRe([...temp]);
+      createComment(
+        user.accessToken,
+        {
+          participationId: parseInt(participantId),
+          exerciseId: parseInt(exerciseId),
+        },
+        { text: inputRef.current.value },
+      ).then(refresh);
     }
   };
 
@@ -79,15 +71,16 @@ function ReplyWindow() {
           style={{ borderRadius: '10px' }}
         >
           <Text fontWeight="bold" color="#E9B3B3" width="15%">
-            아이디
+            닉네임
           </Text>
           <Text fontWeight="bold" color="#E9B3B3" width="85%">
             내용
           </Text>
         </RowContainer>
-        {re.map((v, i) => {
-          return <Reply key={i} id={v.id} contents={v.contents} />;
+        {comments.map((v, i) => {
+          return <Reply key={i} id={v.nickName} contents={v.text} />;
         })}
+        {comments.length === 0 && <Text>댓글이 없습니다.</Text>}
       </ColumnContainer>
     </ColumnContainer>
   );

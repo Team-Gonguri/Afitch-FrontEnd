@@ -10,7 +10,6 @@ interface FitnessCardProps {
 }
 
 function FitnessCard({ name, id, to }: FitnessCardProps) {
-  console.log(to);
   return (
     <LLink
       width="calc(100% / 7)"
