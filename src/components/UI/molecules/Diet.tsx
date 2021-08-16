@@ -1,13 +1,14 @@
 import React from 'react';
 
 import { RowContainer, Text, LLink } from '../atoms';
+import { SimpleMealDto } from '../../../entity/repo/diet-controller';
 
 interface DietProps {
   meal: string;
-  calorie: string;
+  info: SimpleMealDto | undefined;
 }
 
-function Diet({ meal, calorie }: DietProps) {
+function Diet({ meal, info }: DietProps) {
   return (
     <RowContainer
       width="100%"
@@ -17,10 +18,21 @@ function Diet({ meal, calorie }: DietProps) {
       <Text fontSize="18px" fontWeight="300">
         {meal}
       </Text>
+
       <Text fontSize="18px" fontWeight="300">
-        {calorie}
+        {info ? info.ingredient.calories : '0'} kcal
       </Text>
-      <LLink to="/afitch/mydiet/detail">자세히보기</LLink>
+      <LLink
+        to={{
+          pathname: '/afitch/mydiet/detail',
+          state: {
+            info,
+          },
+        }}
+        fontSize="15px"
+      >
+        자세히보기
+      </LLink>
     </RowContainer>
   );
 }

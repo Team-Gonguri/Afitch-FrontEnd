@@ -5,6 +5,7 @@ import { InputBoxButtonProps } from '../../../entity/components/molecules';
 
 function InputBoxButton({
   text,
+  width,
   iRef,
   type,
   marginBottom,
@@ -19,7 +20,7 @@ function InputBoxButton({
     setIText(e.target.value);
   };
   return (
-    <ColumnContainer width="100%">
+    <ColumnContainer width={width ? width : '100%'}>
       <Text height="30px" width="100%">
         {text}
       </Text>

@@ -1,19 +1,20 @@
-import { Authorities, Food, Ingredient } from './default';
-
-type DietType = 'BREAKFAST' | 'LUNCH' | 'DINNER' | 'SNACK';
+import { Authorities, Food, Ingredient, DietType } from './default';
 
 export interface GetDailyDietParmas {
-  authorities: Authorities;
   date: string;
-  id: number;
+  authorities?: Authorities;
+  id?: number;
 }
 
 export interface GetDailyDietRes {
-  diet: SimpleMealDto[];
+  BREAKFAST: SimpleMealDto | undefined;
+  DINNER: SimpleMealDto | undefined;
+  LUNCH: SimpleMealDto | undefined;
+  SNACK: SimpleMealDto | undefined;
   ingredients: Ingredient;
 }
 
-interface SimpleMealDto {
+export interface SimpleMealDto {
   createdAt: string;
   foods: SimpleFoodWrapperDto[];
   id: number;
@@ -32,8 +33,8 @@ interface SimpleFoodDto {
 }
 
 export interface SaveDietParams {
-  authorities: Authorities;
-  id: number;
+  authorities?: Authorities;
+  id?: number;
 }
 
 export interface SaveDietReq {
@@ -42,7 +43,7 @@ export interface SaveDietReq {
   type: DietType;
 }
 
-interface FoodWrapperDto {
+export interface FoodWrapperDto {
   food: Food;
   size: number;
 }

@@ -21,7 +21,7 @@ export async function foodSearch(
   accessToken: string,
   params: GetFoodSearchParmas,
 ) {
-  const req = await axios.get('/food/search', {
+  const req = await axios.get<GetFoodSearchRes>('/food/search', {
     headers: {
       Authorization: accessToken,
     },

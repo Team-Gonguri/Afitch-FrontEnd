@@ -11,6 +11,10 @@ import ComboBox from './ComboBox';
 import Reply from './Reply';
 import DateDisplay from './DateDisplay';
 import Diet from './Diet';
+import FoodList from './FoodList';
+import Pagination from './Pagination';
+import MealRadios from './MealRadios';
+import SelectedFood from './SelectedFood';
 
 export {
   CheckboxText,
@@ -26,4 +30,8 @@ export {
   Reply,
   DateDisplay,
   Diet,
+  FoodList,
+  Pagination,
+  MealRadios,
+  SelectedFood,
 };

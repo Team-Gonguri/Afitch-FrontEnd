@@ -1,5 +1,6 @@
 export interface InputBoxProps {
   iRef: React.RefObject<HTMLInputElement>;
+  width?: string;
   text?: string;
   type?: string;
   marginBottom?: string;

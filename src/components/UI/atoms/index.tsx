@@ -1,7 +1,7 @@
 import { ColumnContainer, RowContainer } from './Container';
 import { Logo } from './Logo';
 import { Button } from './Button';
-import { Input, Checkbox } from './Input';
+import { Input, Checkbox, RadioBtn } from './Input';
 import { LLink, CategoryLink } from './LLink';
 import { Text, CategoryText } from './Text';
 import { Img } from './Img';
@@ -15,6 +15,7 @@ export {
   Button,
   Input,
   Checkbox,
+  RadioBtn,
   LLink,
   CategoryLink,
   Text,
