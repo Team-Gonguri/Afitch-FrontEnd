@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
-import { ColumnContainer, LLink } from '../atoms';
+import { ColumnContainer, RowContainer, LLink, Text } from '../atoms';
 import { Diet } from '../molecules';
 import useUser from '../../../hook/useUser';
 import { getDailyDiet } from '../../../repo/diet-controller';
-import { Ingredient } from '../../../entity/repo/default';
-import { GetDailyDietRes } from '../../../entity/repo/diet-controller';
+import {
+  GetDailyDietRes,
+  SimpleMealDto,
+} from '../../../entity/repo/diet-controller';
 
 interface DietListProps {
   curDate: string;
@@ -17,9 +19,9 @@ function DietList({ curDate }: DietListProps) {
 
   useEffect(() => {
     if (curDate) {
-      getDailyDiet(user.accessToken, { date: curDate }).then((d) =>
-        setMeal(d.data),
-      );
+      getDailyDiet(user.accessToken, { date: curDate }).then((d) => {
+        setMeal(d.data);
+      });
     }
   }, [curDate]);
 
@@ -33,10 +35,31 @@ function DietList({ curDate }: DietListProps) {
         background: 'white',
       }}
     >
-      <Diet meal="아침" info={meal?.BREAKFAST} />
-      <Diet meal="점심" info={meal?.LUNCH} />
-      <Diet meal="저녁" info={meal?.DINNER} />
-      <Diet meal="간식" info={meal?.SNACK} />
+      <RowContainer
+        width="100%"
+        padding="0 0 10px 0"
+        style={{ borderBottom: '1px solid #e9b3b3', marginBottom: '20px' }}
+      >
+        <Text width="15%" fontSize="20px" fontWeight="400">
+          식사
+        </Text>
+        <Text width="15%" fontSize="20px" fontWeight="400">
+          칼로리
+        </Text>
+        <Text width="15%" fontSize="20px" fontWeight="400">
+          탄수화물
+        </Text>
+        <Text width="15%" fontSize="20px" fontWeight="400">
+          단백질
+        </Text>
+        <Text width="15%" fontSize="20px" fontWeight="400">
+          지방
+        </Text>
+      </RowContainer>
+      <Diet meal="아침" info={meal?.diet.BREAKFAST} />
+      <Diet meal="점심" info={meal?.diet.LUNCH} />
+      <Diet meal="저녁" info={meal?.diet.DINNER} />
+      <Diet meal="간식" info={meal?.diet.SNACK} />
       <LLink
         to={{
           pathname: '/afitch/mydiet/regist',
@@ -44,7 +67,7 @@ function DietList({ curDate }: DietListProps) {
             date: curDate,
           },
         }}
-        marginBottom="20px"
+        style={{ marginBottom: '20px' }}
         fontSize="24px"
       >
         +

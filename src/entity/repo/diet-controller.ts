@@ -7,11 +7,15 @@ export interface GetDailyDietParmas {
 }
 
 export interface GetDailyDietRes {
-  BREAKFAST: SimpleMealDto | undefined;
-  DINNER: SimpleMealDto | undefined;
-  LUNCH: SimpleMealDto | undefined;
-  SNACK: SimpleMealDto | undefined;
+  diet: Diet;
   ingredients: Ingredient;
+}
+
+interface Diet {
+  BREAKFAST: SimpleMealDto;
+  DINNER: SimpleMealDto;
+  LUNCH: SimpleMealDto;
+  SNACK: SimpleMealDto;
 }
 
 export interface SimpleMealDto {
