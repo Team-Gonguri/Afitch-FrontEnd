@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { ColumnContainer, Text } from '../../../../UI/atoms';
-import { UserFitnessList } from '../../../../UI/organisms';
+import useUser from '../../../../../hook/useUser';
+import { ColumnContainer, RowContainer, Text } from '../../../../UI/atoms';
+import { MyInfo, UserFitnessList } from '../../../../UI/organisms';
+import { detailUserInfo } from '../../../../../repo/user';
+import { DetailUserInfoResponse } from '../../../../../entity/repo/user';
+import { FitnessCard } from '../../../../UI/molecules';
 
 function MyFitness() {
+  const { user } = useUser();
+  const [info, setInfo] = useState<DetailUserInfoResponse>();
+
+  useEffect(() => {
+    detailUserInfo(user.accessToken, {}).then((d) => {
+      setInfo(d.data);
+    });
+  }, []);
+
   return (
     <ColumnContainer width="100%">
+      <MyInfo
+        height={info?.height ? info.height.toString() : ''}
+        weight={info?.weight ? info.weight.toString() : ''}
+        nickName={info?.nickName ? info.nickName : ''}
+      />
       <Text
         fontSize="2rem"
         fontWeight="bold"
@@ -15,7 +33,9 @@ function MyFitness() {
       >
         내 운동
       </Text>
-      <UserFitnessList fitness={[]} exerciseId={''} />
+      <RowContainer width="100%">
+        <FitnessCard name="" id={0} to="" />
+      </RowContainer>
     </ColumnContainer>
   );
 }
