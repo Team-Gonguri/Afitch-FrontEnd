@@ -10,6 +10,7 @@ import {
   Comment,
   MyDiet,
   DetailDiet,
+  RegistDiet,
 } from './Switch';
 import { ColumnContainer } from '../../UI/atoms';
 import { MainLayout } from '../../UI/organisms';
@@ -35,7 +36,7 @@ function MenuSwitch() {
     },
     {
       props: {
-        path: '/afitch/fitnessvideo/:fitness',
+        path: '/afitch/fitnessvideo/:id',
         exact: true,
         component: FitnessVideo,
       },
@@ -49,7 +50,7 @@ function MenuSwitch() {
     },
     {
       props: {
-        path: '/afitch/comment/:id',
+        path: '/afitch/comment/:exerciseId/:userId',
         exact: true,
         component: Comment,
       },
@@ -66,6 +67,13 @@ function MenuSwitch() {
         path: '/afitch/mydiet/detail',
         exact: true,
         component: DetailDiet,
+      },
+    },
+    {
+      props: {
+        path: '/afitch/mydiet/regist',
+        exact: true,
+        component: RegistDiet,
       },
     },
   ];

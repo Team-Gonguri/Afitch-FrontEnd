@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { ColumnContainer } from '../atoms';
+import { ColumnContainer, RowContainer, LLink, Text } from '../atoms';
 import { Diet } from '../molecules';
+import useUser from '../../../hook/useUser';
+import { getDailyDiet } from '../../../repo/diet-controller';
+import {
+  GetDailyDietRes,
+  SimpleMealDto,
+} from '../../../entity/repo/diet-controller';
 
-function DietList() {
-  const diet = [
-    { meal: '아침', calorie: '1200kcal' },
-    { meal: '점심', calorie: '1000kcal' },
-    { meal: '저녁', calorie: '700kcal' },
-    { meal: '간식', calorie: '300kcal' },
-  ];
+interface DietListProps {
+  curDate: string;
+}
+
+function DietList({ curDate }: DietListProps) {
+  const { user } = useUser();
+  const [meal, setMeal] = useState<GetDailyDietRes>();
+
+  useEffect(() => {
+    if (curDate) {
+      getDailyDiet(user.accessToken, { date: curDate }).then((d) => {
+        setMeal(d.data);
+      });
+    }
+  }, [curDate]);
 
   return (
     <ColumnContainer
@@ -21,9 +35,43 @@ function DietList() {
         background: 'white',
       }}
     >
-      {diet.map((v) => {
-        return <Diet key={v.meal} meal={v.meal} calorie={v.calorie} />;
-      })}
+      <RowContainer
+        width="100%"
+        padding="0 0 10px 0"
+        style={{ borderBottom: '1px solid #e9b3b3', marginBottom: '20px' }}
+      >
+        <Text width="15%" fontSize="20px" fontWeight="400">
+          식사
+        </Text>
+        <Text width="15%" fontSize="20px" fontWeight="400">
+          칼로리
+        </Text>
+        <Text width="15%" fontSize="20px" fontWeight="400">
+          탄수화물
+        </Text>
+        <Text width="15%" fontSize="20px" fontWeight="400">
+          단백질
+        </Text>
+        <Text width="15%" fontSize="20px" fontWeight="400">
+          지방
+        </Text>
+      </RowContainer>
+      <Diet meal="아침" info={meal?.diet.BREAKFAST} />
+      <Diet meal="점심" info={meal?.diet.LUNCH} />
+      <Diet meal="저녁" info={meal?.diet.DINNER} />
+      <Diet meal="간식" info={meal?.diet.SNACK} />
+      <LLink
+        to={{
+          pathname: '/afitch/mydiet/regist',
+          state: {
+            date: curDate,
+          },
+        }}
+        style={{ marginBottom: '20px' }}
+        fontSize="24px"
+      >
+        +
+      </LLink>
     </ColumnContainer>
   );
 }

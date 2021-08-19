@@ -1,52 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { ColumnContainer } from '../UI/atoms';
 import { RankComboBox, UserFitnessList } from '../UI/organisms';
+import { getParticipants } from '../../repo/exercise-participation-controller';
+import { SimpleExerciseParticipationDto } from '../../entity/repo/exercise-participation-controller';
+import useUser from '../../hook/useUser';
+
+interface ValuesEntity {
+  category: string;
+  fitness: string;
+  order: string;
+}
+
+interface List {
+  id: number;
+  name: string;
+}
 
 function Rank() {
-  const dummy = [
-    {
-      text: 'id1',
-      url: 'http://d34o2hlkm01dp4.cloudfront.net/20210805_bc5b5163-c452-4c93-8008-944fd1b96e6b.mp4',
-    },
-    {
-      text: 'id2',
-      url: 'http://d34o2hlkm01dp4.cloudfront.net/20210805_bc5b5163-c452-4c93-8008-944fd1b96e6b.mp4',
-    },
-    {
-      text: 'id3',
-      url: 'http://d34o2hlkm01dp4.cloudfront.net/20210805_bc5b5163-c452-4c93-8008-944fd1b96e6b.mp4',
-    },
-    {
-      text: 'id4',
-      url: 'http://d34o2hlkm01dp4.cloudfront.net/20210805_bc5b5163-c452-4c93-8008-944fd1b96e6b.mp4',
-    },
-    {
-      text: 'id5',
-      url: 'http://d34o2hlkm01dp4.cloudfront.net/20210805_bc5b5163-c452-4c93-8008-944fd1b96e6b.mp4',
-    },
-    {
-      text: 'id6',
-      url: 'http://d34o2hlkm01dp4.cloudfront.net/20210805_bc5b5163-c452-4c93-8008-944fd1b96e6b.mp4',
-    },
-    {
-      text: 'id7',
-      url: 'http://d34o2hlkm01dp4.cloudfront.net/20210805_bc5b5163-c452-4c93-8008-944fd1b96e6b.mp4',
-    },
-    {
-      text: 'id8',
-      url: 'http://d34o2hlkm01dp4.cloudfront.net/20210805_bc5b5163-c452-4c93-8008-944fd1b96e6b.mp4',
-    },
-    {
-      text: 'id9',
-      url: 'http://d34o2hlkm01dp4.cloudfront.net/20210805_bc5b5163-c452-4c93-8008-944fd1b96e6b.mp4',
-    },
-  ];
+  const { user } = useUser();
+
+  const [values, setValues] = useState<ValuesEntity>({
+    category: '',
+    fitness: '',
+    order: '',
+  });
+
+  const [list, setList] = useState<List[]>([]);
+
+  useEffect(() => {
+    if (
+      (values.fitness && values.order === 'LATEST') ||
+      values.order === 'RANKING'
+    ) {
+      getParticipants(user.accessToken, {
+        exerciseId: parseInt(values.fitness),
+        order: values.order,
+      }).then((d) => {
+        const temp = d.data.lists.map((v) => {
+          return {
+            id: v.id,
+            name: v.userName,
+          };
+        });
+        setList([...temp]);
+      });
+    }
+  }, [values]);
 
   return (
     <ColumnContainer width="100%">
-      <RankComboBox />
-      <UserFitnessList fitness={dummy} />
+      <RankComboBox setValues={setValues} />
+      <UserFitnessList fitness={list} exerciseId={values.fitness} />
     </ColumnContainer>
   );
 }

@@ -7,6 +7,8 @@ import RankComboBox from './RankComboBox';
 import UserFitnessList from './UserFitnessList';
 import ReplyWindow from './ReplyWindow';
 import DietList from './DietList';
+import FoodSearch from './FoodSearch';
+import MyInfo from './MyInfo';
 
 export {
   SignUpForm,
@@ -18,4 +20,6 @@ export {
   UserFitnessList,
   ReplyWindow,
   DietList,
+  FoodSearch,
+  MyInfo,
 };

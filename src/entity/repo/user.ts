@@ -1,8 +1,8 @@
 import { Authorities } from './default';
 
 export interface GetUserInfoParmas {
-  authorities: Authorities;
-  id: number;
+  authorities?: Authorities;
+  id?: number;
 }
 
 export interface DetailUserInfoResponse {
@@ -20,8 +20,8 @@ interface SimpleExerciseParticipationDto {
 }
 
 export interface UpdateUserInfoParams {
-  authorities: Authorities;
-  id: number;
+  authorities?: Authorities;
+  id?: number;
 }
 
 export interface UpdateUserInfoRequest {

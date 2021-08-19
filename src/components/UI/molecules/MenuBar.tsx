@@ -9,7 +9,7 @@ function MenuBar() {
   const menus = [
     { menuName: '운동 하러 가기', url: '/afitch/fitness' },
     { menuName: '랭킹 보러 가기', url: '/afitch/rank' },
-    { menuName: '내가 올린 운동', url: '/afitch/myfitness' },
+    { menuName: '내 정보 및 운동', url: '/afitch/myfitness' },
     { menuName: '내가 먹은 음식', url: '/afitch/mydiet' },
   ];
 

@@ -25,7 +25,7 @@ export async function getExerciseDetail(
   params: GetExerciseDetailParams,
 ) {
   const req = await axios.get<GetExerciseDetailRes>(
-    `/exersices/${params.exerciseId}`,
+    `/exercises/${params.exerciseId}`,
     {
       headers: { Authorization: accessToken },
     },

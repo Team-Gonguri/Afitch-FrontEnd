@@ -22,6 +22,8 @@ export async function getDailyDiet(
       ...params,
     },
   });
+
+  return req;
 }
 
 export async function saveDiet(

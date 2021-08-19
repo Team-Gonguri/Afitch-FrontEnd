@@ -1,18 +1,19 @@
 import React from 'react';
 
-import { ColumnContainer, Img, Text, LLink, Video } from '../atoms';
+import { Text, LLink, Video } from '../atoms';
 
 interface FitnessCardProps {
-  url: string;
-  text: string;
+  name: string;
+  id: number;
+  url?: string;
   to?: string;
 }
 
-function FitnessCard({ url, text, to }: FitnessCardProps) {
+function FitnessCard({ name, id, to }: FitnessCardProps) {
   return (
     <LLink
       width="calc(100% / 7)"
-      to={to ? to : `/afitch/fitnessvideo/${text}`}
+      to={to ? to : `/afitch/fitnessvideo/${id}`}
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -29,7 +30,7 @@ function FitnessCard({ url, text, to }: FitnessCardProps) {
         maxHeight: '384px',
       }}
     >
-      <Video
+      {/* <Video
         src={url}
         muted
         style={{
@@ -38,7 +39,7 @@ function FitnessCard({ url, text, to }: FitnessCardProps) {
           width: '95%',
           height: '60%',
         }}
-      />
+      /> */}
       <Text
         fontSize="0.8em"
         style={{
@@ -47,7 +48,7 @@ function FitnessCard({ url, text, to }: FitnessCardProps) {
           bottom: '13%',
         }}
       >
-        {text}
+        {name}
       </Text>
     </LLink>
   );

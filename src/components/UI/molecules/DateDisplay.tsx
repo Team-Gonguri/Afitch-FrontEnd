@@ -1,19 +1,22 @@
 import React from 'react';
 
 import { RowContainer, Text } from '../../UI/atoms';
-import useDateParsing from '../../../hook/useDateParsing';
 
 interface DateDisplayProps {
-  date: Date;
+  curDate: DateFormat;
 }
 
-function DateDisplay({ date }: DateDisplayProps) {
-  const { yyyy, mm, dd } = useDateParsing(date);
+interface DateFormat {
+  yyyy: string;
+  mm: string;
+  dd: string;
+}
 
+function DateDisplay({ curDate }: DateDisplayProps) {
   return (
     <RowContainer marginRight="20px">
       <Text width="auto" fontSize="5vw" fontWeight="bold" color="#E9B3B3">
-        {yyyy} / {mm} / {dd}
+        {curDate.yyyy} / {curDate.mm} / {curDate.dd}
       </Text>
     </RowContainer>
   );

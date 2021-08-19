@@ -36,4 +36,9 @@ const Checkbox = styled(Input).attrs({ type: 'checkbox' })`
     props.marginBottom ? props.marginBottom : '0px'};
 `;
 
-export { Input, Checkbox };
+const RadioBtn = styled(Input).attrs({ type: 'radio' })`
+  width: 16px;
+  height: 16px;
+`;
+
+export { Input, Checkbox, RadioBtn };
