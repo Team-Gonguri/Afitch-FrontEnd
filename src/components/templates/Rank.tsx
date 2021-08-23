@@ -33,6 +33,7 @@ function Rank() {
       (values.fitness && values.order === 'LATEST') ||
       values.order === 'RANKING'
     ) {
+      setList([]);
       getParticipants(user.accessToken, {
         exerciseId: parseInt(values.fitness),
         order: values.order,

@@ -1,11 +1,11 @@
 import { Authorities } from './default';
 
-export interface SaveUserExerciseVideoParams {
-  authorities: Authorities;
+export interface SaveUserExerciseVideoPayload {
   exerciseId: number;
-  id: FormData;
-  open: FormData;
-  video: FormData;
+  open: string;
+  video: File;
+  authorities?: Authorities;
+  id?: number;
 }
 
 export interface SaveUserExerciseVideoRes {
