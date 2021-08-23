@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import {
-  SaveUserExerciseVideoParams,
+  SaveUserExerciseVideoPayload,
   SaveUserExerciseVideoRes,
   DeleteUserExerciseVideoParams,
   GetParticipantDetailParams,
@@ -10,7 +10,26 @@ import {
   GetPariticpantsRes,
 } from '../entity/repo/exercise-participation-controller';
 
-export async function createUserVideo(accessToken: string) {}
+export async function createUserVideo(
+  accessToken: string,
+  payload: SaveUserExerciseVideoPayload,
+) {
+  const formData = new FormData();
+  formData.append('video', payload.video);
+  formData.append('open', payload.open);
+  const req = axios.post(
+    `/exercises/${payload.exerciseId}/participation`,
+    formData,
+    {
+      headers: {
+        Authorization: accessToken,
+        'Content-Type': 'multipart/form-data',
+      },
+    },
+  );
+
+  return req;
+}
 
 export async function deleteUserVideo(
   accessToken: string,

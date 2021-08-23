@@ -13,6 +13,7 @@ export interface DetailUserInfoResponse {
 }
 
 interface SimpleExerciseParticipationDto {
+  exerciseName: string;
   id: number;
   scope: 'PUBLIC' | 'PRIVATE';
   score: number;

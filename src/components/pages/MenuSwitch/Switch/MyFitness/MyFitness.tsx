@@ -14,6 +14,7 @@ function MyFitness() {
   useEffect(() => {
     detailUserInfo(user.accessToken, {}).then((d) => {
       setInfo(d.data);
+      console.log(d.data);
     });
   }, []);
 
@@ -34,7 +35,16 @@ function MyFitness() {
         내 운동
       </Text>
       <RowContainer width="100%">
-        <FitnessCard name="" id={0} to="" />
+        {/* {info?.myParticipation &&
+          info.myParticipation.map((v) => {
+            return (
+              <FitnessCard
+                name={v.exerciseName}
+                id={v.id}
+                to={`afitch/comment/${exerciseId}/${v.id}`}
+              />
+            );
+          })} */}
       </RowContainer>
     </ColumnContainer>
   );

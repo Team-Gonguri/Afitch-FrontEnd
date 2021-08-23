@@ -7,10 +7,11 @@ import { getParticipants } from '../../../repo/exercise-participation-controller
 import useUser from '../../../hook/useUser';
 
 interface FitnessVideoListProps {
+  width: string;
   exerciseId: number;
 }
 
-function FitnessVideoList({ exerciseId }: FitnessVideoListProps) {
+function FitnessVideoPlayer({ width, exerciseId }: FitnessVideoListProps) {
   const { user } = useUser();
   const [url, setUrl] = useState<string | undefined>();
 
@@ -24,7 +25,7 @@ function FitnessVideoList({ exerciseId }: FitnessVideoListProps) {
   }, []);
 
   return (
-    <ColumnContainer width="96%" marginBottom="50px">
+    <ColumnContainer width={width} marginBottom="0px">
       <Iframe
         width="100%"
         height="67vh"
@@ -33,9 +34,6 @@ function FitnessVideoList({ exerciseId }: FitnessVideoListProps) {
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         marginBottom="20px"
       ></Iframe>
-      <Button marginBottom="20px" style={{ marginLeft: 'auto' }}>
-        영상찍기
-      </Button>
       {/* <Text marginRight="auto" marginBottom="20px" fontWeight="600">
         새로운 영상
       </Text>
@@ -44,4 +42,4 @@ function FitnessVideoList({ exerciseId }: FitnessVideoListProps) {
   );
 }
 
-export default FitnessVideoList;
+export default FitnessVideoPlayer;
