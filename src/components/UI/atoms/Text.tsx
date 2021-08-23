@@ -30,9 +30,11 @@ const Text = styled.div`
 `;
 
 const CategoryText = styled(Text)`
+  background: rgba(233, 179, 179, 0.8);
+  background-opacity: 0.8;
   justify-content: center;
   position: absolute;
-  bottom: 10%;
+  border-radius: 10px 0px 0px 10px;
 `;
 
 export { Text, CategoryText };

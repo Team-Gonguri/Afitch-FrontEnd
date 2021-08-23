@@ -37,17 +37,28 @@ const LLink = styled(Link)`
   color: ${(props: LLinkProps) => (props.color ? props.color : '#ffffff')};
 `;
 
+interface CategoryLinkProps extends LLinkProps {
+  Img?: string;
+}
+
 const CategoryLink = styled(LLink)`
+  display: 'flex';
   position: relative;
 
-  max-width: 400px;
+  max-width: 700px;
 
-  padding-bottom: min(30%, 400px);
+  padding-bottom: min(18%, 300px);
   margin-bottom: 20px;
 
   border-radius: 10px;
   margin-left: calc(10% / 6);
   margin-right: calc(10% / 6);
+
+  background-image: url(${(props: CategoryLinkProps) =>
+    props.Img ? props.Img : ''});
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 `;
 
 export { LLink, CategoryLink };
