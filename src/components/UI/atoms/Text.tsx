@@ -30,6 +30,10 @@ const Text = styled.div`
 `;
 
 const CategoryText = styled(Text)`
+  width: 42%;
+  height: 100%;
+  color: white;
+  font-size: 2.5em;
   background: rgba(233, 179, 179, 0.8);
   background-opacity: 0.8;
   justify-content: center;

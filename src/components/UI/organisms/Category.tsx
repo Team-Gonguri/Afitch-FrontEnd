@@ -15,7 +15,11 @@ interface CategoryProps {
 function Category({ categories }: CategoryProps) {
   console.log(categories);
   return (
-    <RowContainer width="100%" padding="20px 0 0 0">
+    <RowContainer
+      width="70%"
+      padding="20px 0 0 0"
+      style={{ justifyContent: 'space-between' }}
+    >
       {categories.map((v, i) => {
         let img;
         if (v === 'ABDOMINAL') img = Abdominal;
@@ -29,16 +33,9 @@ function Category({ categories }: CategoryProps) {
             key={i}
             width="42%"
             to={`/afitch/fitnesslist/${v}`}
-            style={{ backgroundImage: `url(${img})` }}
+            img={img}
           >
-            <CategoryText
-              width="42%"
-              height="100%"
-              color="white"
-              fontSize="2.5em"
-            >
-              {v}
-            </CategoryText>
+            <CategoryText>{v}</CategoryText>
           </CategoryLink>
         );
       })}

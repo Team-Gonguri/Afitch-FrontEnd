@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Logo from '../../../assets/Logo.png';
 import { RowContainer } from '../atoms';
 import { FitnessCard } from '../molecules';
 import { SimpleExerciseDto } from '../../../entity/repo/exercise-controller';
@@ -16,7 +15,7 @@ interface Cards {
 
 function CardList({ list }: Cards) {
   return (
-    <RowContainer width="100%" style={{ justifyContent: '' }}>
+    <RowContainer width="100%" padding="20px 0 0 0">
       {list &&
         list.map((v, i) => {
           return <FitnessCard key={i} name={v.name} id={v.id} />;

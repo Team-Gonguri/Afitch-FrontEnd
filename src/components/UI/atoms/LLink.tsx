@@ -38,7 +38,7 @@ const LLink = styled(Link)`
 `;
 
 interface CategoryLinkProps extends LLinkProps {
-  Img?: string;
+  img?: string;
 }
 
 const CategoryLink = styled(LLink)`
@@ -51,14 +51,35 @@ const CategoryLink = styled(LLink)`
   margin-bottom: 20px;
 
   border-radius: 10px;
-  margin-left: calc(10% / 6);
-  margin-right: calc(10% / 6);
+  margin-left: calc(6% / 4);
+  margin-right: calc(6% / 4);
 
   background-image: url(${(props: CategoryLinkProps) =>
-    props.Img ? props.Img : ''});
+    props.img ? props.img : ''});
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 `;
 
-export { LLink, CategoryLink };
+const FitnessLink = styled(LLink)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
+  max-width: 400px;
+
+  padding-bottom: min(calc(72% / 7), calc(1200px / 7));
+
+  margin: 0px calc(4% / 8);
+
+  background: white;
+  border: 1px solid #e9b3b3;
+
+  cursor: pointer;
+
+  font-size: max(calc(80vw / 5 / 12), 18px);
+`;
+
+export { LLink, CategoryLink, FitnessLink };

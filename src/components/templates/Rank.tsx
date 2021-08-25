@@ -26,7 +26,7 @@ function Rank() {
     order: '',
   });
 
-  const [list, setList] = useState<List[]>([]);
+  const [list, setList] = useState<SimpleExerciseParticipationDto[]>([]);
 
   useEffect(() => {
     if (
@@ -38,13 +38,8 @@ function Rank() {
         exerciseId: parseInt(values.fitness),
         order: values.order,
       }).then((d) => {
-        const temp = d.data.lists.map((v) => {
-          return {
-            id: v.id,
-            name: v.userName,
-          };
-        });
-        setList([...temp]);
+        console.log(d.data);
+        setList(d.data.lists);
       });
     }
   }, [values]);
@@ -52,7 +47,7 @@ function Rank() {
   return (
     <ColumnContainer width="100%">
       <RankComboBox setValues={setValues} />
-      <UserFitnessList fitness={list} exerciseId={values.fitness} />
+      <UserFitnessList fitnessList={list} />
     </ColumnContainer>
   );
 }

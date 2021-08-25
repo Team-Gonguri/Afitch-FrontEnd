@@ -45,7 +45,7 @@ function FitnessVideo({ match }: RouteComponentProps<any>) {
   };
 
   return (
-    <ColumnContainer width="100%">
+    <ColumnContainer width="100%" marginBottom="50px">
       <RowContainer
         width="100%"
         marginBottom="20px"
