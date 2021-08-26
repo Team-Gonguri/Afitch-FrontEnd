@@ -20,9 +20,10 @@ function FitnessList({ match }: RouteComponentProps<any>) {
   useEffect(() => {
     console.log(category);
     if (category) {
-      getExercises(user.accessToken, { category }).then((d) =>
-        setList(d.data.exercises),
-      );
+      getExercises(user.accessToken, { category }).then((d) => {
+        setList(d.data.exercises);
+        console.log(d.data);
+      });
     }
   }, [category]);
 

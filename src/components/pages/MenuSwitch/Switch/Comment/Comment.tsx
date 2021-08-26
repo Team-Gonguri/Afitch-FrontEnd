@@ -34,14 +34,15 @@ function Comment({ match }: RouteComponentProps<MatchParams>) {
 
   return (
     <ColumnContainer width="100%">
-      <Video
+      <Iframe
         width="100%"
-        height="vh"
+        height="67vh"
         marginBottom="50px"
-        controls
+        title="video player"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         style={{ background: 'black' }}
         src={url}
-      />
+      ></Iframe>
       <ReplyWindow
         comments={comments}
         refresh={getInfo}

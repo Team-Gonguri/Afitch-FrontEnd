@@ -1,56 +1,46 @@
 import React from 'react';
 
-import { Text, LLink, Video } from '../atoms';
+import { Text, LLink, FitnessLink, ColumnContainer } from '../atoms';
 
 interface FitnessCardProps {
   name: string;
-  id: number;
+  score?: number;
+  id?: number;
   url?: string;
   to?: string;
 }
 
-function FitnessCard({ name, id, to }: FitnessCardProps) {
+function FitnessCard({ name, score, id, to }: FitnessCardProps) {
   return (
-    <LLink
-      width="calc(100% / 7)"
-      to={to ? to : `/afitch/fitnessvideo/${id}`}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        paddingTop: '15px',
-        paddingBottom: 'calc(100% / 7 * 0.85)',
-        background: 'white',
-        border: '1px solid #e9b3b3',
-        margin: `20px calc(100%/5/8)`,
-        cursor: 'pointer',
-        position: 'relative',
-        fontSize: 'calc(80vw/5/12)',
-        maxWidth: '320px',
-        maxHeight: '384px',
-      }}
-    >
-      {/* <Video
-        src={url}
-        muted
+    <FitnessLink width="24%" to={to ? to : `/afitch/fitnessvideo/${id}`}>
+      <ColumnContainer
         style={{
           position: 'absolute',
-          top: '0%',
-          width: '95%',
-          height: '60%',
-        }}
-      /> */}
-      <Text
-        fontSize="0.8em"
-        style={{
-          justifyContent: 'center',
-          position: 'absolute',
-          bottom: '13%',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
         }}
       >
-        {name}
-      </Text>
-    </LLink>
+        <Text
+          fontSize="1.0em"
+          style={{
+            justifyContent: 'center',
+          }}
+        >
+          {name}
+        </Text>
+        {score && (
+          <Text
+            fontSize="1.0em"
+            style={{
+              justifyContent: 'center',
+            }}
+          >
+            점수: {score.toFixed(2)}
+          </Text>
+        )}
+      </ColumnContainer>
+    </FitnessLink>
   );
 }
 

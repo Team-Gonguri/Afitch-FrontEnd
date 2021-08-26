@@ -42,7 +42,6 @@ function InputBoxButton({
           width={bWidth ? bWidth : '30%'}
           onClick={() => {
             onClick && onClick();
-            setIText('');
           }}
         >
           {btnText}

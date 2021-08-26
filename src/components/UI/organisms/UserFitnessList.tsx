@@ -2,22 +2,29 @@ import React from 'react';
 
 import { RowContainer } from '../atoms';
 import { FitnessCard } from '../molecules';
-import { UserFitness } from '../../../entity/components/organisms';
+import { SimpleExerciseParticipationDto } from '../../../entity/repo/exercise-participation-controller';
 
-function UserFitnessList({ fitness, exerciseId }: UserFitness) {
+interface UserFitnessListProps {
+  fitnessList: SimpleExerciseParticipationDto[];
+}
+
+function UserFitnessList({ fitnessList }: UserFitnessListProps) {
   return (
     <RowContainer width="100%">
-      {fitness &&
-        fitness.map((v) => {
-          return (
-            <FitnessCard
-              key={v.name}
-              id={v.id}
-              name={v.name}
-              url={v.url}
-              to={`/afitch/comment/${exerciseId}/${v.id}`}
-            />
-          );
+      {fitnessList &&
+        fitnessList.map((v: SimpleExerciseParticipationDto) => {
+          if (v.scope === 'PUBLIC') {
+            return (
+              <FitnessCard
+                key={v.userName + v.score}
+                name={`닉네임: ${v.userName}`}
+                score={v.score}
+                to={`/afitch/comment/${v.exerciseId}/${v.participationId}`}
+              />
+            );
+          } else {
+            return;
+          }
         })}
     </RowContainer>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { ColumnContainer, Iframe, Button, Text } from '../atoms';
+import { ColumnContainer, Iframe, Button, Text, Video } from '../atoms';
 import { VideoList } from '../molecules';
 import { getExerciseDetail } from '../../../repo/exercise-controller';
 import { getParticipants } from '../../../repo/exercise-participation-controller';
@@ -16,9 +16,10 @@ function FitnessVideoPlayer({ width, exerciseId }: FitnessVideoListProps) {
   const [url, setUrl] = useState<string | undefined>();
 
   useEffect(() => {
-    getExerciseDetail(user.accessToken, { exerciseId }).then((d) =>
-      setUrl(d.data.expertURL),
-    );
+    getExerciseDetail(user.accessToken, { exerciseId }).then((d) => {
+      setUrl(d.data.expertURL);
+      console.log(d.data);
+    });
     getParticipants(user.accessToken, { exerciseId, order: 'LATEST' }).then(
       (d) => console.log(d.data),
     );
